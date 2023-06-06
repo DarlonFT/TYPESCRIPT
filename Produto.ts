@@ -1,25 +1,39 @@
-abstract class Produto {
+export class Produto {
     private _valor: number = 0
     private _validade: string = ""
-    abstract _funcao: string;
+    private _funcao: string;
     private _nome: string = ""
     private _conteudo: number = 0
+    private _tipo: string = ""
+    public _disp: boolean = false;
 
 
-
-    constructor(nome: string, validade: string) {
-        this.nome = nome;
+    constructor(valor: number, validade: string, nome: string, tipo: string) {
+        this.Valor = valor;
         this.Validade = validade;
+        this.nome = nome;
+        this.tipo = tipo;
+
     }
-    
-    public set nome(v : string) {
+
+ 
+    public set tipo(v: string) {
+        this._tipo = v;
+    }
+
+    public get tipo(): string {
+        return this._tipo;
+    }
+
+
+    public set nome(v: string) {
         this._nome = v;
     }
-    
-    public get nome() : string {
+
+    public get nome(): string {
         return this._nome
     }
-    
+
 
     public get Valor(): number {
         return this._valor;
@@ -31,11 +45,11 @@ abstract class Produto {
 
 
     public get Validade(): string {
-        return this.Validade
+        return this._validade
     }
 
     public set Validade(v: string) {
-        this.Validade = v;
+        this._validade = v;
     }
 
 
@@ -54,10 +68,8 @@ abstract class Produto {
 
     public set Conteudo(v: number) {
         this._conteudo = v;
-    }
-
-
-
-    //tem que cadastrar os produtos então não sei se vai precisar de uma classe abstrata pra isso 
+    }  //tem que cadastrar os produtos então não sei se vai precisar de uma classe abstrata pra isso 
 
 }
+
+
